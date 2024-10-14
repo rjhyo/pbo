@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar Buku</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background: linear-gradient(to right, #ff758c, #ff7eb3); 
+            font-family: 'Arial', sans-serif;
+            height: 100vh; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            margin: 0; 
+        }
+        .container {
+            max-width: 600px; 
+            width: 100%; 
+            padding: 30px; 
+            background-color: rgba(255, 255, 255, 0.9); 
+            border-radius: 15px; 
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); 
+        }
+        h1 {
+            text-align: center; 
+            color: #FF1493; 
+            margin-bottom: 20px;
+            font-family: 'Comic Sans MS', cursive; 
+        }
+        .list-group-item {
+            border: none; 
+            border-radius: 10px; 
+            margin-bottom: 10px; 
+            background-color: #ffffff; 
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+            transition: transform 0.2s; 
+        }
+        .list-group-item:hover {
+            transform: scale(1.02); 
+        }
+        .btn {
+            border-radius: 10px; 
+        }
+        .btn-success {
+            background-color: #ffffff; 
+            transition: background-color 0.3s; 
+        }
+        .btn-success:hover {
+            background-color: #ff758c; 
+        }
+        .btn-warning {
+            border: none; 
+            transition: background-color 0.3s; 
+        }
+        .btn-warning:hover {
+            background-color: #e0a800; 
+        }
+        .btn-danger {
+            border: none; 
+            transition: background-color 0.3s; 
+        }
+        .btn-danger:hover {
+            background-color: #c82333; 
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Daftar Buku</h1>
+        <a href="/add" class="btn btn-success mb-3">Tambah Buku</a>
+        <ul class="list-group">
+            <% books.forEach((book, index) => { %>
+                <li class="list-group-item">
+                    <h5><%= book.title %></h5>
+                    <p>Penulis: <%= book.author %> | Tahun: <%= book.year %></p>
+                    <a href="/edit/<%= index %>" class="btn btn-warning">Edit</a>
+                    <form action="/delete/<%= index %>" method="POST" style="display:inline;">
+                        <button type="submit" class="btn btn-danger">Hapus</button>
+                    </form>
+                </li>
+            <% }) %>
+        </ul>
+    </div>
+</body>
+</html>

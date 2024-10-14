@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Buku</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background: linear-gradient(to right, #6a11cb, #2575fc); 
+            font-family: 'Arial', sans-serif;
+            height: 100vh; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            margin: 0; 
+        }
+        .container {
+            max-width: 500px; 
+            width: 100%; 
+            padding: 30px; 
+            background-color: rgba(255, 255, 255, 0.9); 
+            border-radius: 15px; 
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); 
+        }
+        h1 {
+            text-align: center; 
+            color: #FF1493; 
+            margin-bottom: 20px; 
+            font-family: 'Comic Sans MS', cursive; 
+        }
+        .form-group {
+            margin-bottom: 20px; 
+        }
+        .form-control {
+            border-radius: 10px; 
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); 
+        }
+        button {
+            border-radius: 10px; 
+            background-color: #FF1493; 
+            color: white; 
+            transition: background-color 0.3s; 
+        }
+        button:hover {
+            background-color: #e6007e; 
+        }
+        .back-link {
+            text-align: center; 
+            margin-top: 20px; 
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Edit Buku</h1>
+        <form action="/edit/<%= index %>" method="POST">
+            <div class="form-group">
+                <input type="text" name="title" class="form-control" value="<%= book.title %>" required>
+            </div>
+            <div class="form-group">
+                <input type="text" name="author" class="form-control" value="<%= book.author %>" required>
+            </div>
+            <div class="form-group">
+                <input type="number" name="year" class="form-control" value="<%= book.year %>" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Perbarui Buku</button>
+        </form>
+        <div class="back-link">
+            <a href="/" class="btn btn-secondary">Kembali ke Daftar Buku</a>
+        </div>
+    </div>
+</body>
+</html>
